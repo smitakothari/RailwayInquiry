@@ -22,7 +22,7 @@ public class EnquiryEndpoint {
     private RailwayEnquiry railwayEnquiry;
 
 
-    @RequestMapping(method = RequestMethod.GET, value = "/trainlivestatus/{trainNumber}", produces = "application/json")
+    @RequestMapping(method = RequestMethod.GET, value = "/trainlivestatus/{trainNumber}", produces = "applicaton/json")
     public Railway getLiveStatus(@PathVariable String trainNumber){
         return  railwayEnquiry.enquiry(trainNumber);
 //        return enquiryService.getLiveStatus();

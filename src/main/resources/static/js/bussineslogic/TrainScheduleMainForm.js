@@ -5,6 +5,7 @@
 var React = require("react");
 
 var TrainScheduleView = require("../views/TrainScheduleView");
+var PNRStatusView = require("../views/PNRStatusView");
 var TrainSheduleDetails = require("../views/TrainSheduleDetails");
 
 
@@ -12,12 +13,14 @@ const OBJECT_PROP_DEFAULTS = {
     defaultValues: {
         TrainNumber: "",
         TrainDateOfJourney: "",
+        PNRNumber:"",
         searchRes:[],
     },
 
     dynamicContent: {
         TrainNumberLabel: "Train Number",
         TrainDateOfJourneyLabel: "Date of Journey",
+        PNRNumberLabel: "PNR Number",
     }
 };
 
@@ -31,10 +34,10 @@ const TrainScheduleMainForm = React.createClass({
     },
 
     getInitialState(){
-      const  {TrainNumber,TrainDateOfJourney}  =
+      const  {TrainNumber,TrainDateOfJourney, PNRNumber}  =
           this.preserveObjectPropDefaults("defaultValues");
       return{
-          TrainNumber,TrainDateOfJourney
+          TrainNumber,TrainDateOfJourney,PNRNumber
       };
     },
 
@@ -59,6 +62,11 @@ const TrainScheduleMainForm = React.createClass({
     OnChangeTrainNumber(e){
         e.preventDefault();
         this.setState({TrainNumber: e.target.value});
+    },
+
+    OnChangePNRNumber(e){
+        e.preventDefault();
+        this.setState({PNRNumber: e.target.value});
     },
 
     onSubmitHandler(e){
@@ -104,6 +112,13 @@ const url = "/trainlivestatus/"+ this.state.TrainNumber;
                 buttonText="Search"
                 formSubmit ="value"
             ></TrainScheduleView>
+
+                <PNRStatusView
+                    PNRNumber = {this.state.PNRNumber}
+                    dynamicContent={dynamicContent}
+                    OnChangePNRNumber = {this.OnChangePNRNumber}
+                    buttonText="Search"
+                ></PNRStatusView>
 
         {this.state.searchRes ?
             <TrainSheduleDetails position = {this.state.searchRes.position}></TrainSheduleDetails>:null

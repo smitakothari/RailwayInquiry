@@ -21480,18 +21480,21 @@
 	var React = __webpack_require__(1);
 
 	var TrainScheduleView = __webpack_require__(179);
-	var TrainSheduleDetails = __webpack_require__(181);
+	var PNRStatusView = __webpack_require__(181);
+	var TrainSheduleDetails = __webpack_require__(182);
 
 	const OBJECT_PROP_DEFAULTS = {
 	    defaultValues: {
 	        TrainNumber: "",
 	        TrainDateOfJourney: "",
+	        PNRNumber: "",
 	        searchRes: []
 	    },
 
 	    dynamicContent: {
 	        TrainNumberLabel: "Train Number",
-	        TrainDateOfJourneyLabel: "Date of Journey"
+	        TrainDateOfJourneyLabel: "Date of Journey",
+	        PNRNumberLabel: "PNR Number"
 	    }
 	};
 
@@ -21507,9 +21510,10 @@
 	    getInitialState: function () {
 	        const $__0 = this.preserveObjectPropDefaults("defaultValues"),
 	              TrainNumber = $__0.TrainNumber,
-	              TrainDateOfJourney = $__0.TrainDateOfJourney;
+	              TrainDateOfJourney = $__0.TrainDateOfJourney,
+	              PNRNumber = $__0.PNRNumber;
 	        return {
-	            TrainNumber: TrainNumber, TrainDateOfJourney: TrainDateOfJourney
+	            TrainNumber: TrainNumber, TrainDateOfJourney: TrainDateOfJourney, PNRNumber: PNRNumber
 	        };
 	    },
 
@@ -21534,6 +21538,11 @@
 	    OnChangeTrainNumber: function (e) {
 	        e.preventDefault();
 	        this.setState({ TrainNumber: e.target.value });
+	    },
+
+	    OnChangePNRNumber: function (e) {
+	        e.preventDefault();
+	        this.setState({ PNRNumber: e.target.value });
 	    },
 
 	    onSubmitHandler: function (e) {
@@ -21574,6 +21583,11 @@
 	            onSubmit: this.onSubmitHandler,
 	            buttonText: "Search",
 	            formSubmit: "value"
+	        }), React.createElement(PNRStatusView, {
+	            PNRNumber: this.state.PNRNumber,
+	            dynamicContent: dynamicContent,
+	            OnChangePNRNumber: this.OnChangePNRNumber,
+	            buttonText: "Search"
 	        }), this.state.searchRes ? React.createElement(TrainSheduleDetails, { position: this.state.searchRes.position }) : null);
 	    }
 	});
@@ -21637,6 +21651,35 @@
 
 /***/ },
 /* 181 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */ /**
+	                      * Created by smita on 1/8/17.
+	                      */
+
+	var React = __webpack_require__(1);
+
+	var PNRStatus = __webpack_require__(180);
+
+	const PNRStatusView = React.createClass({ displayName: "PNRStatusView",
+
+	    formSubmit: function (e) {
+	        this.props.onSubmit(e);
+	    },
+
+	    render: function () {
+	        return React.createElement("div", { className: "container" }, React.createElement("form", { className: "", onSubmit: this.formSubmit }, React.createElement(PNRStatus, { label: this.props.dynamicContent.PNRNumberLabel,
+	            placeHolderText: this.props.PNRNumber,
+	            onChange: this.props.OnChangePNRNumber
+	        }), React.createElement("button", { type: "submit",
+	            "data-submit": true }, this.props.buttonText)));
+	    }
+	});
+
+	module.exports = PNRStatusView;
+
+/***/ },
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */ /**
