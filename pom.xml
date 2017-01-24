@@ -135,7 +135,7 @@
     </dependencies>
 
     <build>
-        <finalName>railway-enquiry</finalName>
+        <finalName>railwayEnquirySystem</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
