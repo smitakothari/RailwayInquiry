@@ -23,7 +23,6 @@ import static javax.swing.text.html.FormSubmitEvent.MethodType.GET;
  */
 @SpringBootApplication
 @Controller
-@Configuration
 @ComponentScan("com.jlabs.indianrailway")
 public class Application extends SpringBootServletInitializer {
     @Override
@@ -34,26 +33,5 @@ public class Application extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-
-//    @RequestMapping(value = {"/","/pnr"}, method = RequestMethod.GET, produces = "")
-//    public String index() {
-//        return "index";
-//    }
-
-
-    @Bean
-    public WebMvcConfigurerAdapter forwardToIndex() {
-        return new WebMvcConfigurerAdapter() {
-            @Override
-            public void addViewControllers(ViewControllerRegistry registry) {
-                // forward requests to /admin and /user to their index.html
-                registry.addViewController("/pnr").setViewName(
-                        "forward:/index.html");
-                registry.addViewController("/trainStatus").setViewName(
-                        "forward:/index.html");
-            }
-        };
-    }
-
 
 }

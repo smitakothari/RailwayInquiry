@@ -7,6 +7,7 @@ import com.jlabs.indianrailway.domain.PNR;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,6 +17,8 @@ import java.util.List;
 /**
  * Created by smita on 1/4/17.
  */
+
+@Service
 public class PNRService {
 
 

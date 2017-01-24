@@ -76,13 +76,13 @@ const PNRStatusMainForm = React.createClass({
     onSubmitHandler(e){
         e.preventDefault();
         const formDataFields = JSON.stringify({
-            "TrainNumber": this.state.TrainNumber,
+            "TrainNumber": this.state.PNRNumber,
             "TrainDateOfJourney":this.state.TrainDateOfJourney
         }) ;
 
 
         // const url = `http://api.railwayapi.com/live/train/{formDataFields.TrainNumber}/doj/{formDataFields.TrainDateOfJourney}/apikey/{myapikey}/`;
-        const url = "/trainlivestatus/"+ this.state.TrainNumber;
+        const url = "/pnr/"+ this.state.PNRNumber;
         self= this;
         $.ajax({
             type: 'GET',
