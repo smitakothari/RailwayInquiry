@@ -84,6 +84,7 @@ const url = "/trainlivestatus/"+ this.state.TrainNumber;
             type: 'GET',
             url: url,
             dataType: 'json',
+            Accept: 'application/json',
             contentType: 'application/json',
             success: function (data) {
                 console.log('url : ' + url);
@@ -113,12 +114,12 @@ const url = "/trainlivestatus/"+ this.state.TrainNumber;
                 formSubmit ="value"
             ></TrainScheduleView>
 
-                <PNRStatusView
-                    PNRNumber = {this.state.PNRNumber}
-                    dynamicContent={dynamicContent}
-                    OnChangePNRNumber = {this.OnChangePNRNumber}
-                    buttonText="Search"
-                ></PNRStatusView>
+                {/*<PNRStatusView*/}
+                    {/*PNRNumber = {this.state.PNRNumber}*/}
+                    {/*dynamicContent={dynamicContent}*/}
+                    {/*OnChangePNRNumber = {this.OnChangePNRNumber}*/}
+                    {/*buttonText="Search"*/}
+                {/*></PNRStatusView>*/}
 
         {this.state.searchRes ?
             <TrainSheduleDetails position = {this.state.searchRes.position}></TrainSheduleDetails>:null

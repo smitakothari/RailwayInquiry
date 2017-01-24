@@ -33,4 +33,6 @@ public class EnquiryEndpoint {
     public Railway getPNRNumber(@PathVariable String pnrNumber){
         return  railwayEnquiry.enquiry(pnrNumber);
     }
+
+
 }
