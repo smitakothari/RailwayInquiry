@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "To Query Indian Railway for train status updates",
   "main": "app",
-   "dependencies": {
+  "dependencies": {
     "bootstrap": "^3.3.6",
     "dsv-loader": "^1.1.0",
     "griddle-react": "^0.6.1",
@@ -19,6 +19,7 @@
     "react": "^15.2.1",
     "react-addons-test-utils": "^15.2.1",
     "react-dom": "^15.2.1",
+    "react-router": "^2.8.1",
     "react-tools": "^0.13.3",
     "underscore": "^1.8.3"
   },
@@ -32,7 +33,6 @@
     "jest-cli": "^0.8.2",
     "jest-webpack": "^0.2.1"
   },
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

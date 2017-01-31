@@ -1,7 +1,9 @@
 package com.jlabs.indianrailway.endpoint;
 
+import com.jlabs.indianrailway.domain.PNR;
 import com.jlabs.indianrailway.domain.Railway;
 import com.jlabs.indianrailway.service.EnquiryService;
+import com.jlabs.indianrailway.service.PNRService;
 import com.jlabs.indianrailway.service.RailwayEnquiry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +23,9 @@ public class EnquiryEndpoint {
     @Autowired
     private RailwayEnquiry railwayEnquiry;
 
+    @Autowired
+    private PNRService pnrService;
+
 
     @RequestMapping(method = RequestMethod.GET, value = "/trainlivestatus/{trainNumber}", produces = "application/json")
     public Railway getLiveStatus(@PathVariable String trainNumber){
@@ -30,7 +35,9 @@ public class EnquiryEndpoint {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/pnr/{pnrNumber}", produces = "application/json")
-    public Railway getPNRNumber(@PathVariable String pnrNumber){
-        return  railwayEnquiry.enquiry(pnrNumber);
+    public PNR getPNRNumber(@PathVariable String pnrNumber){
+        return pnrService.getPNR(pnrNumber);
     }
+
+
 }
