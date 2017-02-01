@@ -1,7 +1,5 @@
 package com.jlabs.indianrailway.domain;
 
-import java.util.List;
-
 /**
  * Created by smita on 1/4/17.
  */
@@ -19,8 +17,12 @@ public class Route {
     private String actdep;
     private String day;
     private String distance;
+    private String station;
+    private String actarr_date;
+    private String latemin;
 
-    public Route(String no, String scharr_date, String has_arrived, String scharr, Station station_, String has_departed, String status, String schdep, String actdep, String day, String distance) {
+
+    public Route(String no, String scharr_date, String has_arrived, String scharr, Station station_, String has_departed, String status, String schdep, String actdep, String day, String distance, String station, String actarr_date, String latemin) {
         this.no = no;
         this.scharr_date = scharr_date;
         this.has_arrived = has_arrived;
@@ -32,6 +34,9 @@ public class Route {
         this.actdep = actdep;
         this.day = day;
         this.distance = distance;
+        this.station = station;
+        this.actarr_date = actarr_date;
+        this.latemin = latemin;
     }
 
     public String getNo() {
@@ -120,5 +125,29 @@ public class Route {
 
     public void setDistance(String distance) {
         this.distance = distance;
+    }
+
+    public String getStation() {
+        return station;
+    }
+
+    public void setStation(String station) {
+        this.station = station;
+    }
+
+    public String getActarr_date() {
+        return actarr_date;
+    }
+
+    public void setActarr_date(String actarr_date) {
+        this.actarr_date = actarr_date;
+    }
+
+    public String getLatemin() {
+        return latemin;
+    }
+
+    public void setLatemin(String latemin) {
+        this.latemin = latemin;
     }
 }

@@ -15,6 +15,7 @@ const OBJECT_PROP_DEFAULTS = {
         TrainDateOfJourney: "",
         PNRNumber:"",
         searchRes:[],
+
     },
 
     dynamicContent: {
@@ -122,7 +123,13 @@ const url = "/trainlivestatus/"+ this.state.TrainNumber;
                 {/*></PNRStatusView>*/}
 
         {this.state.searchRes ?
-            <TrainSheduleDetails position = {this.state.searchRes.position}></TrainSheduleDetails>:null
+            <TrainSheduleDetails
+                position = {this.state.searchRes.position}
+                routes = {this.state.searchRes.route}
+            >
+
+            </TrainSheduleDetails>
+            :null
         }
         </div>
         )

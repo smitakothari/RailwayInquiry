@@ -7,9 +7,9 @@ import java.util.List;
  */
 public class Railway {
 
-private String position;
-private String error;
-private String start_date;
+    private String position;
+    private String error;
+    private String start_date;
     private List<Route> route;
 
     public Railway(String position, String error, String start_date, List<Route> routes) {
