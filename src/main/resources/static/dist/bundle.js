@@ -21731,12 +21731,12 @@
 
 	    renderRoutes: function (routes) {
 	        return routes.map(function (route, index) {
-	            return React.createElement("div", { className: "routes row" }, React.createElement("div", { className: "col-md-1" }, route.station, " "), React.createElement("div", { className: "col-md-1" }, route.distance), React.createElement("div", { className: "col-md-1" }, route.actarr_date), React.createElement("div", { className: "col-md-1" }, route.status));
+	            return React.createElement("div", { className: "routes row" }, React.createElement("div", { className: "col-sm-3" }, route.station, " "), React.createElement("div", { className: "col-sm-3" }, route.distance), React.createElement("div", { className: "col-sm-3" }, route.actarr_date), React.createElement("div", { className: "col-sm-3" }, route.status));
 	        });
 	    },
 
 	    render: function () {
-	        return React.createElement("div", null, React.createElement("div", { className: "trainsched-top" }, React.createElement("span", null, " Current Status : ", this.props.position, " ")), React.createElement("div", { className: "routeborder" }, React.createElement("div", { className: "route row" }, React.createElement("div", { className: "col-md-1" }, "Station"), React.createElement("div", { className: "col-md-1" }, "kms"), React.createElement("div", { className: "col-md-1" }, "Arrives"), React.createElement("div", { className: "col-md-1" }, "On Time")), this.renderRoutes(this.props.routes)));
+	        return React.createElement("div", null, React.createElement("div", { className: "trainsched-top" }, React.createElement("span", null, " Current Status : ", this.props.position, " ")), React.createElement("div", { className: "container" }, React.createElement("div", { className: "" }, React.createElement("div", { className: "route row" }, React.createElement("div", { className: "col-sm-3" }, "Station"), React.createElement("div", { className: "col-sm-3" }, "kms"), React.createElement("div", { className: "col-sm-3" }, "Arrives"), React.createElement("div", { className: "col-sm-3" }, "On Time")), this.renderRoutes(this.props.routes))));
 	    }
 
 	});
