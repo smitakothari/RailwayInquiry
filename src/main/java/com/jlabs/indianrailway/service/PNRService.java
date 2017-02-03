@@ -39,7 +39,7 @@ public class PNRService {
             Client client = Client.create();
 
             WebResource webResource = client
-                    .resource("http://api.railwayapi.com/pnr_status/"+PNRNumber+"/apikey/s6puku2t");
+                    .resource("http://api.railwayapi.com/pnr_status/pnr/"+PNRNumber+"/apikey/s6puku2t");
 
             ClientResponse response = webResource.accept("application/json")
                     .get(ClientResponse.class);
