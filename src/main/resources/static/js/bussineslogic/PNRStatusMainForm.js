@@ -10,7 +10,7 @@ var React = require("react");
 
 var TrainScheduleView = require("../views/TrainScheduleView");
 var PNRStatusView = require("../views/PNRStatusView");
-var TrainSheduleDetails = require("../views/TrainSheduleDetails");
+var PNRDetails = require("../views/PNRDetails");
 
 
 const OBJECT_PROP_DEFAULTS = {
@@ -107,26 +107,19 @@ const PNRStatusMainForm = React.createClass({
         const dynamicContent = this.preserveObjectPropDefaults("dynamicContent");
         return(
             <div>
-                {/*<TrainScheduleView*/}
-                    {/*TrainNumber = {this.state.TrainNumber}*/}
-                    {/*TrainDateOfJourney = {this.state.TrainDateOfJourney}*/}
-                    {/*dynamicContent={dynamicContent}*/}
-                    {/*onChangeTrainNumber ={this.OnChangeTrainNumber}*/}
-                    {/*onChangeTrainDateOfJourney ={this.OnChangeTrainDateOfJourney}*/}
-                    {/*onSubmit={this.onSubmitHandler}*/}
-                    {/*buttonText="Search"*/}
-                    {/*formSubmit ="value"*/}
-                {/*></TrainScheduleView>*/}
-
                 <PNRStatusView
                 PNRNumber = {this.state.PNRNumber}
                 dynamicContent={dynamicContent}
                 OnChangePNRNumber = {this.OnChangePNRNumber}
                 buttonText="Search"
+                onSubmit={this.onSubmitHandler}
                 ></PNRStatusView>
 
                 {this.state.searchRes ?
-                    <TrainSheduleDetails position = {this.state.searchRes.position}></TrainSheduleDetails>:null
+                    <PNRDetails
+                        passengers = {this.state.searchRes.passengers}>
+                    </PNRDetails>:
+                    null
                 }
             </div>
         )

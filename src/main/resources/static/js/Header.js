@@ -14,7 +14,7 @@ const Header = React.createClass({
 
                     <li role="presentation"><Link to={'trainStatus'}>Train Running Status</Link></li>
                     <li role="presentation"><Link to={'pnr'}>PNR Status</Link></li>
-                    <li role="presentation"><a href="#">About Us</a></li>
+
                 </ul>
 
                 {this.props.children}
