@@ -14,6 +14,7 @@ public class PNR {
     private String train_name;
     private String train_num;
     private String doj;
+    private String response_code;
 
     public PNR(String pnr) {
         this.pnr = pnr;
@@ -67,5 +68,11 @@ public class PNR {
         this.doj = doj;
     }
 
+    public String getResponse_code() {
+        return response_code;
+    }
 
+    public void setResponse_code(String response_code) {
+        this.response_code = response_code;
+    }
 }

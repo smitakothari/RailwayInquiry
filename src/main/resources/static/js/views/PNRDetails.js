@@ -26,9 +26,6 @@ const PNRDetails = React.createClass({
     {
         return (
             <div>
-                <div className="trainsched-top">
-                    <span> Current Status  </span>
-                </div>
 
                 <div className="container">
                     <div className="">
@@ -51,7 +48,7 @@ const PNRDetails = React.createClass({
                 <div className="container">
                     <div className="">
                         <div className="route row">
-                            <div className="col-sm-3">PNR Number</div>
+                            <div className="col-sm-3">Passenger Number</div>
                             <div className="col-sm-3">Booking Status</div>
                             <div className="col-sm-3">Current Status</div>
                             <div className="col-sm-3">Coach Position</div>
