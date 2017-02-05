@@ -126,8 +126,8 @@ const url = "/trainlivestatus/"+ this.state.TrainNumber;
             <TrainSheduleDetails
                 position = {this.state.searchRes.position}
                 routes = {this.state.searchRes.route}
-            >
-
+                responseCode = {this.state.searchRes.response_code}
+                error = {this.state.searchRes.error}>
             </TrainSheduleDetails>
             :null
         }

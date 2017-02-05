@@ -121,7 +121,10 @@ const PNRStatusMainForm = React.createClass({
                         trainNumber = {this.state.searchRes.train_num}
                         trainName = {this.state.searchRes.train_name}
                         chartPreparedStatus = {this.state.searchRes.chart_prepared}
-                        dateofJourney = {this.state.searchRes.doj}>
+                        dateofJourney = {this.state.searchRes.doj}
+                        responseCode = {this.state.searchRes.response_code}
+                        error = {this.state.searchRes.error}>
+
 
                     </PNRDetails>:
                     null

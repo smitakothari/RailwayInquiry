@@ -25,7 +25,18 @@ const TrainScheduleDetails = React.createClass({
     render()
     {
         return (
-            <div>
+                <div>
+                    {this.props.responseCode == 404}:
+                    <div className="container">
+                        Oops! Something is wrong, it seems Railway is under maintainence!
+                        Don't worry try text PNR to 139
+                    </div>
+                    :
+                    {this.props.responseCode == 510}:
+                    <div className="container">
+                        Train not scheduled to run on the given date
+                    </div>
+                    :
                 <div className="trainsched-top">
                     <span> Current Status : {this.props.position} </span>
                 </div>

@@ -11,6 +11,7 @@ public class Railway {
     private String error;
     private String start_date;
     private List<Route> route;
+    private String response_code;
 
     public Railway(String position, String error, String start_date, List<Route> routes) {
         this.position = position;
@@ -49,5 +50,13 @@ public class Railway {
 
     public void setRoute(List<Route> route) {
         this.route = route;
+    }
+
+    public String getResponse_code() {
+        return response_code;
+    }
+
+    public void setResponse_code(String response_code) {
+        this.response_code = response_code;
     }
 }

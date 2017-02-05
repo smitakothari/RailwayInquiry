@@ -21626,8 +21626,9 @@
 
 	        this.state.searchRes ? React.createElement(TrainSheduleDetails, {
 	            position: this.state.searchRes.position,
-	            routes: this.state.searchRes.route
-	        }) : null);
+	            routes: this.state.searchRes.route,
+	            responseCode: this.state.searchRes.response_code,
+	            error: this.state.searchRes.error }) : null);
 	    }
 	});
 	module.exports = TrainScheduleMainForm;
@@ -21736,7 +21737,7 @@
 	    },
 
 	    render: function () {
-	        return React.createElement("div", null, React.createElement("div", { className: "trainsched-top" }, React.createElement("span", null, " Current Status : ", this.props.position, " ")), React.createElement("div", { className: "container" }, React.createElement("div", { className: "" }, React.createElement("div", { className: "route row" }, React.createElement("div", { className: "col-sm-3" }, "Station"), React.createElement("div", { className: "col-sm-3" }, "kms"), React.createElement("div", { className: "col-sm-3" }, "Arrives"), React.createElement("div", { className: "col-sm-3" }, "On Time")), this.renderRoutes(this.props.routes))));
+	        return React.createElement("div", null, this.props.responseCode == 404, ":", React.createElement("div", { className: "container" }, "Oops! Something is wrong, it seems Railway is under maintainence!" + " " + "Don't worry try text PNR to 139"), ":", this.props.responseCode == 510, ":", React.createElement("div", { className: "container" }, "Train not scheduled to run on the given date"), ":", React.createElement("div", { className: "trainsched-top" }, React.createElement("span", null, " Current Status : ", this.props.position, " ")), React.createElement("div", { className: "container" }, React.createElement("div", { className: "" }, React.createElement("div", { className: "route row" }, React.createElement("div", { className: "col-sm-3" }, "Station"), React.createElement("div", { className: "col-sm-3" }, "kms"), React.createElement("div", { className: "col-sm-3" }, "Arrives"), React.createElement("div", { className: "col-sm-3" }, "On Time")), this.renderRoutes(this.props.routes))));
 	    }
 
 	});
@@ -21863,7 +21864,9 @@
 	            trainNumber: this.state.searchRes.train_num,
 	            trainName: this.state.searchRes.train_name,
 	            chartPreparedStatus: this.state.searchRes.chart_prepared,
-	            dateofJourney: this.state.searchRes.doj }) : null);
+	            dateofJourney: this.state.searchRes.doj,
+	            responseCode: this.state.searchRes.response_code,
+	            error: this.state.searchRes.error }) : null);
 	    }
 	});
 	module.exports = PNRStatusMainForm;
@@ -21887,7 +21890,7 @@
 	    },
 
 	    render: function () {
-	        return React.createElement("div", null, React.createElement("div", { className: "trainsched-top" }, React.createElement("span", null, " Current Status  ")), React.createElement("div", { className: "container" }, React.createElement("div", { className: "" }, React.createElement("div", { className: "route row" }, React.createElement("div", { className: "col-sm-3" }, "Chart Prepared"), React.createElement("div", { className: "col-sm-3" }, "Train Number"), React.createElement("div", { className: "col-sm-3" }, "Train Name"), React.createElement("div", { className: "col-sm-3" }, "Date of Journey")), React.createElement("div", { className: "routes row" }, React.createElement("div", { className: "col-sm-3" }, this.props.chartPreparedStatus, " "), React.createElement("div", { className: "col-sm-3" }, this.props.trainNumber, " "), React.createElement("div", { className: "col-sm-3" }, this.props.trainName, " "), React.createElement("div", { className: "col-sm-3" }, this.props.dateofJourney, " ")))), React.createElement("div", { className: "container" }, React.createElement("div", { className: "" }, React.createElement("div", { className: "route row" }, React.createElement("div", { className: "col-sm-3" }, "PNR Number"), React.createElement("div", { className: "col-sm-3" }, "Booking Status"), React.createElement("div", { className: "col-sm-3" }, "Current Status"), React.createElement("div", { className: "col-sm-3" }, "Coach Position")), this.renderPNRDetails(this.props.passengers))));
+	        return React.createElement("div", null, this.props.responseCode == 404, ":", React.createElement("div", { className: "container" }, "Oops! Something is wrong, it seems Railway is under maintainence!" + " " + "Don't worry try text PNR to 139"), ":", this.props.responseCode == 410, ":", React.createElement("div", { className: "container" }, "PNR not yet generated"), ":", React.createElement("div", { className: "container" }, React.createElement("div", { className: "" }, React.createElement("div", { className: "route row" }, React.createElement("div", { className: "col-sm-3" }, "Chart Prepared"), React.createElement("div", { className: "col-sm-3" }, "Train Number"), React.createElement("div", { className: "col-sm-3" }, "Train Name"), React.createElement("div", { className: "col-sm-3" }, "Date of Journey")), React.createElement("div", { className: "routes row" }, React.createElement("div", { className: "col-sm-3" }, this.props.chartPreparedStatus, " "), React.createElement("div", { className: "col-sm-3" }, this.props.trainNumber, " "), React.createElement("div", { className: "col-sm-3" }, this.props.trainName, " "), React.createElement("div", { className: "col-sm-3" }, this.props.dateofJourney, " ")))), React.createElement("div", { className: "container" }, React.createElement("div", { className: "" }, React.createElement("div", { className: "route row" }, React.createElement("div", { className: "col-sm-3" }, "Passenger Number"), React.createElement("div", { className: "col-sm-3" }, "Booking Status"), React.createElement("div", { className: "col-sm-3" }, "Current Status"), React.createElement("div", { className: "col-sm-3" }, "Coach Position")), this.renderPNRDetails(this.props.passengers))));
 	    }
 
 	});
