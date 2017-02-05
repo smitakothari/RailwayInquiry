@@ -26,17 +26,18 @@ const PNRDetails = React.createClass({
     {
         return (
             <div>
-                {this.props.responseCode == 404}?
+                {this.props.responseCode == 404?
                 <div className="container">
                     Oops! Something is wrong, it seems Railway is under maintainence!
                     Don't worry try text PNR to 139
                 </div>
                 :
-                {this.props.responseCode == 410}?
+                this.props.responseCode == 410?
                 <div className="container">
                      PNR not yet generated
                  </div>
                 :
+                    <div>
                 <div className="container">
                     <div className="">
                         <div className="route row">
@@ -66,6 +67,8 @@ const PNRDetails = React.createClass({
                         {this.renderPNRDetails(this.props.passengers)}
                     </div>
                 </div>
+                        </div>
+                    }
             </div>
 
         )
