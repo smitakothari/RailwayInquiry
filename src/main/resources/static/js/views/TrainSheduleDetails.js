@@ -37,6 +37,7 @@ const TrainScheduleDetails = React.createClass({
                         Train not scheduled to run on the given date
                     </div>
                     :
+                        this.props.responseCode == 200?
                 <div>
                 <div className="trainsched-top">
                     <span> Current Status : {this.props.position} </span>
@@ -54,6 +55,8 @@ const TrainScheduleDetails = React.createClass({
                     </div>
                 </div>
                     </div>
+                            :
+                            <div> No Data found for the Train Number Entered</div>
                         }
             </div>
 

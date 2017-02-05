@@ -37,6 +37,7 @@ const PNRDetails = React.createClass({
                      PNR not yet generated
                  </div>
                 :
+                this.props.responseCode == 200?
                     <div>
                 <div className="container">
                     <div className="">
@@ -68,6 +69,8 @@ const PNRDetails = React.createClass({
                     </div>
                 </div>
                         </div>
+                    :
+                    <div> No Data found for the PNR Entered</div>
                     }
             </div>
 
