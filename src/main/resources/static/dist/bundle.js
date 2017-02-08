@@ -21587,6 +21587,7 @@
 	        // const url = `http://api.railwayapi.com/live/train/{formDataFields.TrainNumber}/doj/{formDataFields.TrainDateOfJourney}/apikey/{myapikey}/`;
 	        const url = this.state.TrainNumber + "/trainlivestatus/" + this.state.TrainDateOfJourney;
 	        self = this;
+	        self.setState({ loaderimage: 'loadingstart' });
 	        $.ajax({
 	            type: 'GET',
 	            url: url,
@@ -21597,10 +21598,12 @@
 	                console.log('url : ' + url);
 	                console.log('data : ' + data);
 	                self.setState({ searchRes: data });
+	                self.setState({ loaderimage: '' });
 	            },
 	            error: function (data) {
 	                console.log('failed to register');
 	                console.log('data : ' + data);
+	                self.setState({ loaderimage: '' });
 	            }
 	        });
 	    },
@@ -21616,7 +21619,8 @@
 	            onSubmit: this.onSubmitHandler,
 	            buttonText: "Search",
 	            formSubmit: "value"
-	        }),
+
+	        }), this.state.loaderimage === 'loadingstart' ? React.createElement("div", { className: "three-quarters-loader loaderspinner" }) : null,
 
 	        /*<PNRStatusView*/
 	        /*PNRNumber = {this.state.PNRNumber}*/
@@ -21736,12 +21740,12 @@
 
 	    renderRoutes: function (routes) {
 	        return routes.map(function (route, index) {
-	            return React.createElement("div", { className: "routes row" }, React.createElement("div", { className: "col-sm-3" }, route.station, " "), React.createElement("div", { className: "col-sm-3" }, route.distance), React.createElement("div", { className: "col-sm-3" }, route.actarr_date), React.createElement("div", { className: "col-sm-3" }, route.status));
+	            return React.createElement("div", { className: "routes row" }, React.createElement("div", { className: "col-sm-2" }, route.station, " "), React.createElement("div", { className: "col-sm-2" }, route.distance), React.createElement("div", { className: "col-sm-3" }, route.actarr_date), React.createElement("div", { className: "col-sm-3" }, route.actarr), React.createElement("div", { className: "col-sm-2" }, route.status));
 	        });
 	    },
 
 	    render: function () {
-	        return React.createElement("div", null, this.props.responseCode == 404 ? React.createElement("div", { className: "container" }, "Oops! Something is wrong, it seems Railway is under maintainence!" + " " + "Don't worry try text PNR to 139") : this.props.responseCode == 510 ? React.createElement("div", { className: "container" }, "Train not scheduled to run on the given date") : this.props.responseCode == 200 ? React.createElement("div", null, React.createElement("div", { className: "trainsched-top" }, React.createElement("span", null, " Current Status : ", this.props.position, " ")), React.createElement("div", { className: "container" }, React.createElement("div", { className: "" }, React.createElement("div", { className: "route row" }, React.createElement("div", { className: "col-sm-3" }, "Station"), React.createElement("div", { className: "col-sm-3" }, "kms"), React.createElement("div", { className: "col-sm-3" }, "Arrives"), React.createElement("div", { className: "col-sm-3" }, "On Time")), this.renderRoutes(this.props.routes)))) : React.createElement("div", null, " No Data found for the Train Number Entered"));
+	        return React.createElement("div", null, this.props.responseCode == 404 ? React.createElement("div", { className: "container" }, "Oops! Something is wrong, it seems Railway is under maintainence!" + " " + "Don't worry try text PNR to 139") : this.props.responseCode == 510 ? React.createElement("div", { className: "container" }, "Train not scheduled to run on the given date") : this.props.responseCode == 200 ? React.createElement("div", null, React.createElement("div", { className: "trainsched-top" }, React.createElement("span", null, " Current Status : ", this.props.position, " ")), React.createElement("div", { className: "container" }, React.createElement("div", { className: "" }, React.createElement("div", { className: "route row" }, React.createElement("div", { className: "col-sm-2" }, "Station"), React.createElement("div", { className: "col-sm-2" }, "kms"), React.createElement("div", { className: "col-sm-3" }, "Arrival Date"), React.createElement("div", { className: "col-sm-3" }, "Arrival Time"), React.createElement("div", { className: "col-sm-2" }, "On Time")), this.renderRoutes(this.props.routes)))) : React.createElement("div", null, " No Data found for the Train Number Entered"));
 	    }
 
 	});

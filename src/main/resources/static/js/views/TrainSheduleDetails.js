@@ -12,10 +12,11 @@ const TrainScheduleDetails = React.createClass({
                 return (
 
                     <div className="routes row">
-                        <div className="col-sm-3">{route.station} </div>
-                        <div className="col-sm-3">{route.distance}</div>
+                        <div className="col-sm-2">{route.station} </div>
+                        <div className="col-sm-2">{route.distance}</div>
                         <div className="col-sm-3">{route.actarr_date}</div>
-                        <div className="col-sm-3">{route.status}</div>
+                        <div className="col-sm-3">{route.actarr}</div>
+                        <div className="col-sm-2">{route.status}</div>
                     </div>
                 )
             })
@@ -46,10 +47,11 @@ const TrainScheduleDetails = React.createClass({
                 <div className="container">
                     <div className="">
                         <div className="route row">
-                            <div className="col-sm-3">Station</div>
-                            <div className="col-sm-3">kms</div>
-                            <div className="col-sm-3">Arrives</div>
-                            <div className="col-sm-3">On Time</div>
+                            <div className="col-sm-2">Station</div>
+                            <div className="col-sm-2">kms</div>
+                            <div className="col-sm-3">Arrival Date</div>
+                            <div className="col-sm-3">Arrival Time</div>
+                            <div className="col-sm-2">On Time</div>
                         </div>
                         {this.renderRoutes(this.props.routes)}
                     </div>

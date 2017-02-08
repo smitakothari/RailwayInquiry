@@ -29,3 +29,10 @@ body{
     background-size: cover;
     /*background-repeat: repeat-x;*/
 }
+
+.loaderspinner{
+    top:50% ;
+    align:center;
+    left: 350px;
+
+}

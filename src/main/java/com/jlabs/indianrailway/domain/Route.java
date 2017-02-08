@@ -10,7 +10,7 @@ public class Route {
     private String scharr_date;
     private String has_arrived;
     private String scharr;
-    private  Station station_;
+    private Station station_;
     private String has_departed;
     private String status;
     private String schdep;
@@ -20,6 +20,7 @@ public class Route {
     private String station;
     private String actarr_date;
     private String latemin;
+    private String actarr;
 
 
     public Route(String no, String scharr_date, String has_arrived, String scharr, Station station_, String has_departed, String status, String schdep, String actdep, String day, String distance, String station, String actarr_date, String latemin) {
@@ -149,5 +150,13 @@ public class Route {
 
     public void setLatemin(String latemin) {
         this.latemin = latemin;
+    }
+
+    public String getActarr() {
+        return actarr;
+    }
+
+    public void setActarr(String actarr) {
+        this.actarr = actarr;
     }
 }

@@ -82,6 +82,7 @@ const TrainScheduleMainForm = React.createClass({
         // const url = `http://api.railwayapi.com/live/train/{formDataFields.TrainNumber}/doj/{formDataFields.TrainDateOfJourney}/apikey/{myapikey}/`;
 const url =  this.state.TrainNumber +"/trainlivestatus/"+ this.state.TrainDateOfJourney ;
         self= this;
+        self.setState({loaderimage: 'loadingstart'})
         $.ajax({
             type: 'GET',
             url: url,
@@ -92,10 +93,12 @@ const url =  this.state.TrainNumber +"/trainlivestatus/"+ this.state.TrainDateOf
                 console.log('url : ' + url);
                 console.log('data : ' + data);
                 self.setState({searchRes:data});
+                self.setState({loaderimage: ''});
             },
             error: function (data) {
                 console.log('failed to register');
                 console.log('data : ' + data);
+                self.setState({loaderimage: ''})
 
             }
         })
@@ -114,10 +117,14 @@ const url =  this.state.TrainNumber +"/trainlivestatus/"+ this.state.TrainDateOf
                 onSubmit={this.onSubmitHandler}
                 buttonText="Search"
                 formSubmit ="value"
+
             ></TrainScheduleView>
 
+                {this.state.loaderimage === 'loadingstart' ?
+                    <div className="three-quarters-loader loaderspinner"></div> : null}
+
                 {/*<PNRStatusView*/}
-                    {/*PNRNumber = {this.state.PNRNumber}*/}
+                      {/*PNRNumber = {this.state.PNRNumber}*/}
                     {/*dynamicContent={dynamicContent}*/}
                     {/*OnChangePNRNumber = {this.OnChangePNRNumber}*/}
                     {/*buttonText="Search"*/}
