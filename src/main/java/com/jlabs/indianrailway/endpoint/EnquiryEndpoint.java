@@ -27,9 +27,9 @@ public class EnquiryEndpoint {
     private PNRService pnrService;
 
 
-    @RequestMapping(method = RequestMethod.GET, value = "/trainlivestatus/{trainNumber}", produces = "application/json")
-    public Railway getLiveStatus(@PathVariable String trainNumber){
-        return  railwayEnquiry.enquiry(trainNumber);
+    @RequestMapping(method = RequestMethod.GET, value = "{trainNumber}/trainlivestatus/{doj}", produces = "application/json")
+    public Railway getLiveStatus(@PathVariable String trainNumber,@PathVariable String doj){
+        return  railwayEnquiry.enquiry(trainNumber,doj);
 //        return enquiryService.getLiveStatus();
     }
 

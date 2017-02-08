@@ -12,7 +12,7 @@ var TrainSheduleDetails = require("../views/TrainSheduleDetails");
 const OBJECT_PROP_DEFAULTS = {
     defaultValues: {
         TrainNumber: "",
-        TrainDateOfJourney: "",
+        TrainDateOfJourney: "yyyy-mm-dd",
         PNRNumber:"",
         searchRes:[],
 
@@ -20,6 +20,7 @@ const OBJECT_PROP_DEFAULTS = {
 
     dynamicContent: {
         TrainNumberLabel: "Train Number",
+        JourneyDateLabel: "Journey Date",
         TrainDateOfJourneyLabel: "Date of Journey",
         PNRNumberLabel: "PNR Number",
     }
@@ -79,7 +80,7 @@ const TrainScheduleMainForm = React.createClass({
 
 
         // const url = `http://api.railwayapi.com/live/train/{formDataFields.TrainNumber}/doj/{formDataFields.TrainDateOfJourney}/apikey/{myapikey}/`;
-const url = "/trainlivestatus/"+ this.state.TrainNumber;
+const url =  this.state.TrainNumber +"/trainlivestatus/"+ this.state.TrainDateOfJourney ;
         self= this;
         $.ajax({
             type: 'GET',

@@ -21516,7 +21516,7 @@
 	const OBJECT_PROP_DEFAULTS = {
 	    defaultValues: {
 	        TrainNumber: "",
-	        TrainDateOfJourney: "",
+	        TrainDateOfJourney: "yyyy-mm-dd",
 	        PNRNumber: "",
 	        searchRes: []
 
@@ -21524,6 +21524,7 @@
 
 	    dynamicContent: {
 	        TrainNumberLabel: "Train Number",
+	        JourneyDateLabel: "Journey Date",
 	        TrainDateOfJourneyLabel: "Date of Journey",
 	        PNRNumberLabel: "PNR Number"
 	    }
@@ -21584,7 +21585,7 @@
 	        });
 
 	        // const url = `http://api.railwayapi.com/live/train/{formDataFields.TrainNumber}/doj/{formDataFields.TrainDateOfJourney}/apikey/{myapikey}/`;
-	        const url = "/trainlivestatus/" + this.state.TrainNumber;
+	        const url = this.state.TrainNumber + "/trainlivestatus/" + this.state.TrainDateOfJourney;
 	        self = this;
 	        $.ajax({
 	            type: 'GET',
@@ -21655,6 +21656,9 @@
 	        return React.createElement("div", { className: "container" }, React.createElement("form", { className: "", onSubmit: this.formSubmit }, React.createElement(TrainShedule, { label: this.props.dynamicContent.TrainNumberLabel,
 	            placeHolderText: this.props.TrainNumber,
 	            onChange: this.props.onChangeTrainNumber
+	        }), React.createElement(TrainShedule, { label: this.props.dynamicContent.JourneyDateLabel,
+	            placeHolderText: this.props.TrainDateOfJourney,
+	            onChange: this.props.onChangeTrainDateOfJourney
 	        }), React.createElement("button", { type: "submit",
 	            "data-submit": true }, this.props.buttonText)));
 	    }

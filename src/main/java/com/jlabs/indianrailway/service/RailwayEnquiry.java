@@ -1,18 +1,18 @@
 package com.jlabs.indianrailway.service;
 
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.jlabs.indianrailway.domain.Railway;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import org.json.*;
 
 @Service
 public class RailwayEnquiry {
@@ -25,10 +25,10 @@ public class RailwayEnquiry {
         return modifiedDate;
     }
     
-    public Railway enquiry(String trainNumber) {
+    public Railway enquiry(String trainNumber,String doj) {
 
 
-      String curentdate = currentDate();
+      String curentdate = doj.replace("-","");
         Railway railway = null;
         try {
 

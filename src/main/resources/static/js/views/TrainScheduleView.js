@@ -26,6 +26,12 @@ const TrainScheduleView = React.createClass({
                     >
                     </TrainShedule>
 
+              <TrainShedule label={this.props.dynamicContent.JourneyDateLabel}
+                                  placeHolderText={this.props.TrainDateOfJourney}
+                                  onChange={this.props.onChangeTrainDateOfJourney}
+                    >
+                    </TrainShedule>
+
                     <button type="submit"
                             data-submit>{this.props.buttonText}</button>
 
