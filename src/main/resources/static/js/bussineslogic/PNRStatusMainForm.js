@@ -84,6 +84,7 @@ const PNRStatusMainForm = React.createClass({
         // const url = `http://api.railwayapi.com/live/train/{formDataFields.TrainNumber}/doj/{formDataFields.TrainDateOfJourney}/apikey/{myapikey}/`;
         const url = "/pnr/"+ this.state.PNRNumber;
         self= this;
+        self.setState({loaderimage: 'loadingstart'});
         $.ajax({
             type: 'GET',
             url: url,
@@ -94,10 +95,12 @@ const PNRStatusMainForm = React.createClass({
                 console.log('url : ' + url);
                 console.log('data : ' + data);
                 self.setState({searchRes:data});
+                self.setState({loaderimage: ''});
             },
             error: function (data) {
                 console.log('failed to register');
                 console.log('data : ' + data);
+                self.setState({loaderimage: ''})
 
             }
         })
@@ -114,6 +117,9 @@ const PNRStatusMainForm = React.createClass({
                 buttonText="Search"
                 onSubmit={this.onSubmitHandler}
                 ></PNRStatusView>
+
+                {this.state.loaderimage === 'loadingstart' ?
+                    <div className="three-quarters-loader loaderspinner"></div> : null}
 
                 {this.state.searchRes ?
                     <PNRDetails
